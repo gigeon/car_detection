@@ -1,0 +1,4 @@
+pyinstaller==4.10
+pyinstaller-hooks-contrib==2022.2
+PySide2==5.15.2
+shiboken2==5.15.2
