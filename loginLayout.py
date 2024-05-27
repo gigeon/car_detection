@@ -4,6 +4,7 @@ from PySide2.QtCore import (
 )
 from ui.ui_login import Ui_Login
 from db import DBController
+from mainLayout import mainLayoutClass
 
 class loginLayoutClass(QMainWindow, Ui_Login) :
     def __init__(self, app, dbc):
@@ -12,8 +13,11 @@ class loginLayoutClass(QMainWindow, Ui_Login) :
         self.app = app
         self.dbc = dbc
         self.login_btn.clicked.connect(self.login)
+        self.mainLayoutClass = mainLayoutClass(self.app)
         
     def login(self):
-        self.id = self.id_txt.text()
-        self.pwd = self.pwd_txt.text()
-        row = self.dbc.select("SELECT ID, PWD from CONFIG")
+        # self.id = self.id_txt.text()
+        # self.pwd = self.pwd_txt.text()
+        # row = self.dbc.select("SELECT ID, PWD from CONFIG")
+        self.mainLayoutClass.show()
+        self.close()

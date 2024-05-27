@@ -59,8 +59,8 @@ class DBController:
         
     def create_table(self):
         try:
-            self.cur.execute("CREATE TABLE CONFIG(SPOT_ID text, USER_ID text, USER_PWD text)")
-            self.cur.execute("CREATE TABLE NUMBER(CAR_NO text, PWD, text)")
+            self.cur.execute("CREATE TABLE CONFIG(SPOT_ID text, USER_ID text, USER_PWD text, )")
+            self.cur.execute("CREATE TABLE NUMBER(CAR_NO text, SEND_YN, INT, )")
             
         except Exception as ex:
             file_logger.error("SQL create table ERROR : {}".format(ex))
