@@ -28,7 +28,8 @@ class DBController:
         
     def insert(self, sql):
         try:
-            ...
+            self.cur.execute(sql)
+            self.con.commit()
         except Exception as ex:
             file_logger.error("SQL insert ERROR : {}".format(ex))
         
@@ -59,8 +60,9 @@ class DBController:
         
     def create_table(self):
         try:
-            self.cur.execute("CREATE TABLE CONFIG(SPOT_ID text, USER_ID text, USER_PWD text)")
-            self.cur.execute("CREATE TABLE NUMBER(CAR_NO text, PWD, text)")
+            self.cur.execute("CREATE TABLE CONFIG(SPOT_ID text, SPOT_NAME text, USER_ID text, USER_PWD text)")
+            self.cur.execute("CREATE TABLE NUMBER(CAR_NO text, SEND_YN, INT)")
+            self.cur.execute("CREATE TABLE SETTING(SAVE_PATH text, API_PATH text)")
             
         except Exception as ex:
             file_logger.error("SQL create table ERROR : {}".format(ex))
