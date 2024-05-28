@@ -3,7 +3,6 @@ from PySide2.QtCore import (
     Slot,
 )
 from ui.ui_login import Ui_Login
-from db import DBController
 from mainLayout import mainLayoutClass
 
 class loginLayoutClass(QMainWindow, Ui_Login) :
@@ -13,11 +12,14 @@ class loginLayoutClass(QMainWindow, Ui_Login) :
         self.app = app
         self.dbc = dbc
         self.login_btn.clicked.connect(self.login)
-        self.mainLayoutClass = mainLayoutClass(self.app)
         
     def login(self):
-        # self.id = self.id_txt.text()
-        # self.pwd = self.pwd_txt.text()
-        # row = self.dbc.select("SELECT ID, PWD from CONFIG")
-        self.mainLayoutClass.show()
-        self.close()
+        self.id = self.id_txt.text()
+        self.pwd = self.pwd_txt.text()
+        query = "SELECT USER_ID, USER_PWD FROM CONFIG"
+        row = self.dbc.select(query)
+        # if self.id == row[0]['user_id'] and self.pwd == row[0]['user_pwd'] :
+        #     mainLayout = mainLayoutClass(self.app)
+        #     self.setCentralWidget(mainLayout)
+        mainLayout = mainLayoutClass(self.app)
+        self.setCentralWidget(mainLayout)
