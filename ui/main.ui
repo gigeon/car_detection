@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>830</width>
-    <height>640</height>
+    <width>828</width>
+    <height>633</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="vid_lbl">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -32,11 +32,14 @@
     <property name="text">
      <string>TextLabel</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="logo_lbl">
     <property name="geometry">
      <rect>
-      <x>700</x>
+      <x>720</x>
       <y>10</y>
       <width>70</width>
       <height>70</height>
@@ -48,8 +51,11 @@
     <property name="text">
      <string>tino</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit">
+   <widget class="QTextEdit" name="number_list">
     <property name="geometry">
      <rect>
       <x>560</x>
@@ -57,6 +63,25 @@
       <width>231</width>
       <height>191</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="spot_lbl">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>160</y>
+      <width>231</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(200,200,200);</string>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>
