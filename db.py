@@ -113,6 +113,7 @@ class DBController:
                 USER_PWD TEXT NOT NULL)",
             "NUMBER": "CREATE TABLE NUMBER(\
                 ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\
+                DATE TEXT,\
                 CAR_NO TEXT,\
                 SEND_YN INTEGER DEFAULT 0)",
             "SETTING": "CREATE TABLE SETTING(\
