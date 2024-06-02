@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainWTuDpp.ui'
+## Form generated from reading UI file 'mainVnkQFg.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -18,6 +18,8 @@ class Ui_Main(object):
         if not Main.objectName():
             Main.setObjectName(u"Main")
         Main.resize(828, 633)
+        Main.setMinimumSize(QSize(828, 633))
+        Main.setMaximumSize(QSize(828, 633))
         self.centralwidget = QWidget(Main)
         self.centralwidget.setObjectName(u"centralwidget")
         self.vid_lbl = QLabel(self.centralwidget)
@@ -39,6 +41,9 @@ class Ui_Main(object):
         self.spot_lbl.setGeometry(QRect(560, 160, 231, 41))
         self.spot_lbl.setStyleSheet(u"background-color: rgb(200,200,200);")
         self.spot_lbl.setAlignment(Qt.AlignCenter)
+        self.send_btn = QPushButton(self.centralwidget)
+        self.send_btn.setObjectName(u"send_btn")
+        self.send_btn.setGeometry(QRect(560, 430, 231, 41))
         Main.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(Main)
@@ -51,5 +56,6 @@ class Ui_Main(object):
         self.vid_lbl.setText(QCoreApplication.translate("Main", u"TextLabel", None))
         self.logo_lbl.setText(QCoreApplication.translate("Main", u"tino", None))
         self.spot_lbl.setText(QCoreApplication.translate("Main", u"TextLabel", None))
+        self.send_btn.setText(QCoreApplication.translate("Main", u"\uc804\uc1a1", None))
     # retranslateUi
 
