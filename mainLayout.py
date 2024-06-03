@@ -4,7 +4,10 @@ from PySide2.QtCore import (
     Qt,
 )
 from PySide2.QtWidgets import QFileDialog
-from PySide2.QtGui import QPixmap
+from PySide2.QtGui import (
+    QPixmap,
+    QImage,
+)
 from ui.ui_main import Ui_Main
 import cv2
 import os
@@ -42,17 +45,30 @@ class mainLayoutClass(layoutClass, Ui_Main) :
             self.path = os.path.normpath(self.path)
             self.get_file()
     
-    
     def get_file(self):
+        thread = detectionClass()
+        thread.start()
         if self.path.lower().endswith(('.png', '.jpg', '.jpeg')):
             self.file = cv2.imdecode(np.fromfile(self.path, dtype=np.uint8), cv2.IMREAD_UNCHANGED)
             if self.file is not None:
-                detectionClass().dectection_image(self.file)
+                imgs = self.thread.detection_image(self.file)
                 
         elif self.path.lower().endswith(('.mp4', '.avi', '.mov')):
             self.file = cv2.VideoCapture(self.path)
             if self.file is not None:
-                detectionClass().detection_video(self.file)
+                imgs = detectionClass().detection_video(self.file)
+        
+        self.show_label(self.file)
+                
+    def show_label(self, img):
+        img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        h, w, ch = img_rgb.shape
+        bytes_per_line = ch * w
+        qimg = QImage(img_rgb.data, w, h, bytes_per_line, QImage.Format_RGB888)
+        pixmap = QPixmap.fromImage(qimg)
+        
+        self.vid_lbl.setPixmap(pixmap)
+        self.vid_lbl.setScaledContents(True)
             
             
     
