@@ -1,7 +1,6 @@
 from lib.layoutClass import layoutClass
 from PySide2.QtCore import (
     Slot,
-    Qt,
 )
 from PySide2.QtWidgets import QFileDialog
 from PySide2.QtGui import (
@@ -13,18 +12,21 @@ import cv2
 import os
 import np
 from lib.detection import detectionClass
+from lib.VideoThread import ShowVideoThread
 
 
 class mainLayoutClass(layoutClass, Ui_Main) :
     def __init__(self, app, dbc):
         super(mainLayoutClass, self).__init__()
         self.setupUi(self)
+        self.set_logo()
         self.app = app
         self.dbc = dbc
-        self.set_logo()
         self.file_btn.clicked.connect(self.file_upload)
         self.file = None
         self.path = None
+        self.video_thread = None
+        self.detection_thread = None
         
         query = "SELECT SPOT_NAME FROM CONFIG"
         rows = dbc.select(query)
@@ -46,21 +48,27 @@ class mainLayoutClass(layoutClass, Ui_Main) :
             self.get_file()
     
     def get_file(self):
-        thread = detectionClass()
-        thread.start()
+        
         if self.path.lower().endswith(('.png', '.jpg', '.jpeg')):
             self.file = cv2.imdecode(np.fromfile(self.path, dtype=np.uint8), cv2.IMREAD_UNCHANGED)
-            if self.file is not None:
-                imgs = self.thread.detection_image(self.file)
+            self.show_img_label(self.file)
+            flag = 0
                 
         elif self.path.lower().endswith(('.mp4', '.avi', '.mov')):
             self.file = cv2.VideoCapture(self.path)
-            if self.file is not None:
-                imgs = detectionClass().detection_video(self.file)
+            self.video_thread = ShowVideoThread(self.path)
+            self.video_thread.change_pixmap_signal.connect(self.show_vid_label)
+            self.video_thread.start()
+            flag = 1
         
-        self.show_label(self.file)
+        if self.file is not None:
+            self.detection_thread = detectionClass(self.file, flag)
+            self.detection_thread.detection_signal.connect(self.test)
+            self.detection_thread.start()
+        
+        
                 
-    def show_label(self, img):
+    def show_img_label(self, img):
         img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         h, w, ch = img_rgb.shape
         bytes_per_line = ch * w
@@ -70,5 +78,17 @@ class mainLayoutClass(layoutClass, Ui_Main) :
         self.vid_lbl.setPixmap(pixmap)
         self.vid_lbl.setScaledContents(True)
             
-            
+    @Slot(QImage, name="showVideoSignal")
+    def show_vid_label(self, qt_image):
+        self.vid_lbl.setPixmap(QPixmap.fromImage(qt_image))
+        self.vid_lbl.setScaledContents(True)
+    
+    # def closeEvent(self, event):
+    #     if self.video_thread is not None:
+    #         self.video_thread.stop()
+    #     event.accept()
+    
+    @Slot(list, name="detectionSignal")
+    def test(self, nums):
+        print(nums)
     
