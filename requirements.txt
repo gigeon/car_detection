@@ -8,3 +8,4 @@ torch==2.3.0
 pandas==2.0.3
 requests==2.32.2
 pillow==10.3.0
+pytesseract==0.3.10
