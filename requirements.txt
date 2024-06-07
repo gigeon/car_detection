@@ -2,3 +2,10 @@ pyinstaller==4.10
 pyinstaller-hooks-contrib==2022.2
 PySide2==5.15.2
 shiboken2==5.15.2
+opencv-python==4.9.0.80
+np==1.0.2
+torch==2.3.0
+pandas==2.0.3
+requests==2.32.2
+pillow==10.3.0
+pytesseract==0.3.10
