@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainVnkQFg.ui'
+## Form generated from reading UI file 'maincQLJuj.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -44,6 +44,9 @@ class Ui_Main(object):
         self.send_btn = QPushButton(self.centralwidget)
         self.send_btn.setObjectName(u"send_btn")
         self.send_btn.setGeometry(QRect(560, 430, 231, 41))
+        self.file_btn = QPushButton(self.centralwidget)
+        self.file_btn.setObjectName(u"file_btn")
+        self.file_btn.setGeometry(QRect(240, 520, 91, 31))
         Main.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(Main)
@@ -57,5 +60,6 @@ class Ui_Main(object):
         self.logo_lbl.setText(QCoreApplication.translate("Main", u"tino", None))
         self.spot_lbl.setText(QCoreApplication.translate("Main", u"TextLabel", None))
         self.send_btn.setText(QCoreApplication.translate("Main", u"\uc804\uc1a1", None))
+        self.file_btn.setText(QCoreApplication.translate("Main", u"\ud30c\uc77c \uc5c5\ub85c\ub4dc", None))
     # retranslateUi
 
