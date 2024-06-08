@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainRMsAib.ui'
+## Form generated from reading UI file 'mainVEWchB.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -28,11 +28,6 @@ class Ui_Main(object):
         self.vid_lbl.setAutoFillBackground(False)
         self.vid_lbl.setStyleSheet(u"background-color: rgb(255,255,255);")
         self.vid_lbl.setAlignment(Qt.AlignCenter)
-        self.logo_lbl = QLabel(self.centralwidget)
-        self.logo_lbl.setObjectName(u"logo_lbl")
-        self.logo_lbl.setGeometry(QRect(720, 10, 70, 70))
-        self.logo_lbl.setStyleSheet(u"")
-        self.logo_lbl.setAlignment(Qt.AlignCenter)
         self.number_list = QTextEdit(self.centralwidget)
         self.number_list.setObjectName(u"number_list")
         self.number_list.setGeometry(QRect(560, 220, 231, 191))
@@ -67,9 +62,13 @@ class Ui_Main(object):
         self.ok_btn.setObjectName(u"ok_btn")
         self.ok_btn.setGeometry(QRect(370, 30, 41, 26))
         self.ok_btn.setStyleSheet(u"font: 10pt \"Agency FB\";")
+        self.logo_btn = QPushButton(self.centralwidget)
+        self.logo_btn.setObjectName(u"logo_btn")
+        self.logo_btn.setGeometry(QRect(720, 10, 70, 70))
+        self.logo_btn.setStyleSheet(u"background-color: rgb(240, 240, 240);\n"
+"border: none")
         Main.setCentralWidget(self.centralwidget)
         self.vid_lbl.raise_()
-        self.logo_lbl.raise_()
         self.number_list.raise_()
         self.spot_lbl.raise_()
         self.send_btn.raise_()
@@ -79,6 +78,7 @@ class Ui_Main(object):
         self.text_lbl.raise_()
         self.ok_btn.raise_()
         self.hide_lbl.raise_()
+        self.logo_btn.raise_()
 
         self.retranslateUi(Main)
 
@@ -88,7 +88,6 @@ class Ui_Main(object):
     def retranslateUi(self, Main):
         Main.setWindowTitle(QCoreApplication.translate("Main", u"MainWindow", None))
         self.vid_lbl.setText(QCoreApplication.translate("Main", u"\ud45c\ucd9c\ud55c \uc774\ubbf8\uc9c0 \ud30c\uc77c \uc5c6\uc74c.", None))
-        self.logo_lbl.setText(QCoreApplication.translate("Main", u"tino", None))
         self.spot_lbl.setText(QCoreApplication.translate("Main", u"TextLabel", None))
         self.send_btn.setText(QCoreApplication.translate("Main", u"\uc804\uc1a1", None))
         self.file_btn.setText(QCoreApplication.translate("Main", u"\ud30c\uc77c \uc5c5\ub85c\ub4dc", None))
@@ -96,5 +95,6 @@ class Ui_Main(object):
         self.text_lbl.setText(QCoreApplication.translate("Main", u"\ube44\ubc00\ubc88\ud638", None))
         self.hide_lbl.setText("")
         self.ok_btn.setText(QCoreApplication.translate("Main", u"\ud655\uc778", None))
+        self.logo_btn.setText("")
     # retranslateUi
 

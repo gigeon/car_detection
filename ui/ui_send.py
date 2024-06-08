@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'sendAZJeFu.ui'
+## Form generated from reading UI file 'sendRCSzLw.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -31,11 +31,11 @@ class Ui_Send(object):
         self.api_btn = QPushButton(self.centralwidget)
         self.api_btn.setObjectName(u"api_btn")
         self.api_btn.setGeometry(QRect(429, 430, 101, 26))
-        self.logo_lbl = QLabel(self.centralwidget)
-        self.logo_lbl.setObjectName(u"logo_lbl")
-        self.logo_lbl.setGeometry(QRect(720, 10, 70, 70))
-        self.logo_lbl.setStyleSheet(u"")
-        self.logo_lbl.setAlignment(Qt.AlignCenter)
+        self.logo_btn = QPushButton(self.centralwidget)
+        self.logo_btn.setObjectName(u"logo_btn")
+        self.logo_btn.setGeometry(QRect(720, 10, 70, 70))
+        self.logo_btn.setStyleSheet(u"background-color: rgb(240, 240, 240);\n"
+"border: none")
         Send.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(Send)
@@ -47,6 +47,6 @@ class Ui_Send(object):
         Send.setWindowTitle(QCoreApplication.translate("Send", u"MainWindow", None))
         self.excel_btn.setText(QCoreApplication.translate("Send", u"\uc5d1\uc140 \uc800\uc7a5", None))
         self.api_btn.setText(QCoreApplication.translate("Send", u"API \uc804\uc1a1", None))
-        self.logo_lbl.setText(QCoreApplication.translate("Send", u"tino", None))
+        self.logo_btn.setText("")
     # retranslateUi
 

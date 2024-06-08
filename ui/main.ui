@@ -48,25 +48,6 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="logo_lbl">
-    <property name="geometry">
-     <rect>
-      <x>720</x>
-      <y>10</y>
-      <width>70</width>
-      <height>70</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string>tino</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
    <widget class="QTextEdit" name="number_list">
     <property name="geometry">
      <rect>
@@ -202,8 +183,24 @@
      <string>확인</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="logo_btn">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>10</y>
+      <width>70</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(240, 240, 240);
+border: none</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
    <zorder>vid_lbl</zorder>
-   <zorder>logo_lbl</zorder>
    <zorder>number_list</zorder>
    <zorder>spot_lbl</zorder>
    <zorder>send_btn</zorder>
@@ -213,6 +210,7 @@
    <zorder>text_lbl</zorder>
    <zorder>ok_btn</zorder>
    <zorder>hide_lbl</zorder>
+   <zorder>logo_btn</zorder>
   </widget>
  </widget>
  <resources/>

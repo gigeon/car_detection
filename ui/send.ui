@@ -62,7 +62,7 @@
      <string>API 전송</string>
     </property>
    </widget>
-   <widget class="QLabel" name="logo_lbl">
+   <widget class="QPushButton" name="logo_btn">
     <property name="geometry">
      <rect>
       <x>720</x>
@@ -72,13 +72,11 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">background-color: rgb(240, 240, 240);
+border: none</string>
     </property>
     <property name="text">
-     <string>tino</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <string/>
     </property>
    </widget>
   </widget>
