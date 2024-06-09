@@ -3,6 +3,7 @@ from PySide2.QtWidgets import QFileDialog
 from PySide2.QtGui import QPixmap, QImage
 import cv2
 import os
+from datetime import datetime
 import np
 from lib.detection import detectionClass
 from lib.layoutClass import layoutClass
@@ -84,8 +85,9 @@ class mainLayoutClass(layoutClass, Ui_Main) :
     
     @Slot(list, name="detectionSignal")
     def insert_data(self, nums):
+        now = datetime.now().strftime('%Y-%m-%d')
         for num in nums:
-            query = f"INSERT INTO NUMBER(CAR_NO) VALUES('{num}')"
+            query = f"INSERT INTO NUMBER(CAR_NO, DATE) VALUES('{num}', '{now}')"
             self.dbc.insert(query)
             self.show_num_list()
     
@@ -96,5 +98,5 @@ class mainLayoutClass(layoutClass, Ui_Main) :
             self.number_list.append(row['car_no'])
     
     def show_send(self):
-        sendLayout = sendLayoutClass(self.app, self.dbc, mainLayoutClass)
+        sendLayout = sendLayoutClass(self.app, self.dbc)
         self.setCentralWidget(sendLayout)
