@@ -18,6 +18,7 @@ class Ui_Send(object):
         if not Send.objectName():
             Send.setObjectName(u"Send")
         Send.resize(828, 633)
+        Send.setWindowModality(Qt.ApplicationModal)
         Send.setMinimumSize(QSize(828, 633))
         Send.setMaximumSize(QSize(828, 633))
         self.centralwidget = QWidget(Send)
@@ -36,7 +37,6 @@ class Ui_Send(object):
         self.logo_btn.setGeometry(QRect(720, 10, 70, 70))
         self.logo_btn.setStyleSheet(u"background-color: rgb(240, 240, 240);\n"
 "border: none")
-        Send.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(Send)
 

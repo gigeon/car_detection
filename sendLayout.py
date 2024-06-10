@@ -1,22 +1,31 @@
 from ui.ui_send import Ui_Send
-from lib.layoutClass import layoutClass
+from PySide2.QtGui import QIcon, QPixmap
 from lib.makeExcel import makeExcelClass
+from PySide2.QtCore import Qt
+from PySide2.QtWidgets import QDialog
 import requests
 import json
 
-class sendLayoutClass(layoutClass, Ui_Send):
-    def __init__(self, app, dbc):
+
+class sendLayoutClass(QDialog, Ui_Send):
+    def __init__(self, dbc):
         super(sendLayoutClass, self).__init__()
         self.setupUi(self)
         self.set_logo()
-        self.app = app
         self.dbc = dbc
+        self.setWindowFlags(Qt.FramelessWindowHint) 
         self.logo_btn.clicked.connect(self.close)
         self.excel_btn.clicked.connect(self.send_excel)
         self.api_btn.clicked.connect(self.send_api)
         self.show_num_list()
         
-        
+    def set_logo(self):
+        pixmap = QPixmap('images/tino.png')
+        pixmap = pixmap.scaled(self.logo_btn.size(),Qt.KeepAspectRatio, Qt.SmoothTransformation)
+        icon = QIcon(pixmap)
+        self.logo_btn.setIcon(icon)
+        self.logo_btn.setIconSize(pixmap.size())
+    
     def show_num_list(self):
         query = "SELECT DATE, CAR_NO, SEND_YN FROM NUMBER WHERE SEND_YN = 0"
         rows = self.dbc.select(query)
@@ -24,6 +33,7 @@ class sendLayoutClass(layoutClass, Ui_Send):
             self.number_list.append(row['car_no'])
     
     def send_excel(self):
+        print("1")
         excel = makeExcelClass(self.dbc)
         excel.make_excel()
     

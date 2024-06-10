@@ -98,5 +98,11 @@ class mainLayoutClass(layoutClass, Ui_Main) :
             self.number_list.append(row['car_no'])
     
     def show_send(self):
-        sendLayout = sendLayoutClass(self.app, self.dbc)
-        self.setCentralWidget(sendLayout)
+        self.sendLayout = sendLayoutClass(self.dbc)
+        dlg_rect = self.sendLayout.frameGeometry()
+        center_pointer = self.mapToGlobal(self.rect().center())
+        dlg_rect.moveCenter(center_pointer)
+        self.sendLayout.move(dlg_rect.topLeft())
+        self.sendLayout.show()
+        
+    
