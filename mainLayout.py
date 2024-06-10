@@ -87,11 +87,12 @@ class mainLayoutClass(layoutClass, Ui_Main) :
     def insert_data(self, nums):
         now = datetime.now().strftime('%Y-%m-%d')
         for num in nums:
-            query = f"INSERT INTO NUMBER(CAR_NO, DATE) VALUES('{num}', '{now}')"
+            query = f'INSERT INTO NUMBER(CAR_NO, DATE) VALUES("{num}", "{now}")'
             self.dbc.insert(query)
             self.show_num_list()
     
     def show_num_list(self):
+        self.number_list.clear()
         query = "SELECT ID, CAR_NO FROM NUMBER"
         rows = self.dbc.select(query)
         for row in rows:
