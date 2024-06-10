@@ -58,7 +58,7 @@ class DBController:
         
     def insert_default_setting(self):
         try:
-            query = "INSERT INTO SETTING VALUES ('D:', 'https://hows.or.kr/api/terminal')"
+            query = "INSERT INTO SETTING VALUES ('C:/', 'https://hows.or.kr/api/terminal')"
             self.insert(query)
         except Exception as ex:
             file_logger.error("SQL insert_default_setting ERROR {}".format(ex))

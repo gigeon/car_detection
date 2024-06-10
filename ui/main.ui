@@ -42,26 +42,7 @@
      <string notr="true">background-color: rgb(255,255,255);</string>
     </property>
     <property name="text">
-     <string>TextLabel</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="logo_lbl">
-    <property name="geometry">
-     <rect>
-      <x>720</x>
-      <y>10</y>
-      <width>70</width>
-      <height>70</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string>tino</string>
+     <string>표출한 이미지 파일 없음.</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -114,7 +95,7 @@
      <rect>
       <x>240</x>
       <y>520</y>
-      <width>91</width>
+      <width>100</width>
       <height>31</height>
      </rect>
     </property>
@@ -122,6 +103,114 @@
      <string>파일 업로드</string>
     </property>
    </widget>
+   <widget class="QCheckBox" name="camera_yn">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>89</y>
+      <width>81</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>카메라</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>10</width>
+      <height>10</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="pwd_lbl">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>30</y>
+      <width>191</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="maxLength">
+     <number>10</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="text_lbl">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>30</y>
+      <width>51</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 10pt &quot;Agency FB&quot;;</string>
+    </property>
+    <property name="text">
+     <string>비밀번호</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="hide_lbl">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>20</y>
+      <width>351</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(240, 240, 240);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ok_btn">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>30</y>
+      <width>41</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 10pt &quot;Agency FB&quot;;</string>
+    </property>
+    <property name="text">
+     <string>확인</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="logo_btn">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>10</y>
+      <width>70</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(240, 240, 240);
+border: none</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>vid_lbl</zorder>
+   <zorder>number_list</zorder>
+   <zorder>spot_lbl</zorder>
+   <zorder>send_btn</zorder>
+   <zorder>file_btn</zorder>
+   <zorder>camera_yn</zorder>
+   <zorder>pwd_lbl</zorder>
+   <zorder>text_lbl</zorder>
+   <zorder>ok_btn</zorder>
+   <zorder>hide_lbl</zorder>
+   <zorder>logo_btn</zorder>
   </widget>
  </widget>
  <resources/>

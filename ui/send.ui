@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>Send</class>
+ <widget class="QMainWindow" name="Send">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -25,7 +25,61 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTextEdit" name="number_list">
+    <property name="geometry">
+     <rect>
+      <x>299</x>
+      <y>220</y>
+      <width>231</width>
+      <height>191</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="excel_btn">
+    <property name="geometry">
+     <rect>
+      <x>299</x>
+      <y>430</y>
+      <width>101</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>엑셀 저장</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="api_btn">
+    <property name="geometry">
+     <rect>
+      <x>429</x>
+      <y>430</y>
+      <width>101</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>API 전송</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="logo_btn">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>10</y>
+      <width>70</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(240, 240, 240);
+border: none</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
  </widget>
  <resources/>
  <connections/>

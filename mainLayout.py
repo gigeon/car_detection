@@ -1,18 +1,15 @@
-from lib.layoutClass import layoutClass
-from PySide2.QtCore import (
-    Slot,
-)
+from PySide2.QtCore import Slot
 from PySide2.QtWidgets import QFileDialog
-from PySide2.QtGui import (
-    QPixmap,
-    QImage,
-)
-from ui.ui_main import Ui_Main
+from PySide2.QtGui import QPixmap, QImage
 import cv2
 import os
+from datetime import datetime
 import np
 from lib.detection import detectionClass
+from lib.layoutClass import layoutClass
 from lib.VideoThread import ShowVideoThread
+from sendLayout import sendLayoutClass
+from ui.ui_main import Ui_Main
 
 
 class mainLayoutClass(layoutClass, Ui_Main) :
@@ -23,6 +20,7 @@ class mainLayoutClass(layoutClass, Ui_Main) :
         self.app = app
         self.dbc = dbc
         self.file_btn.clicked.connect(self.file_upload)
+        self.send_btn.clicked.connect(self.show_send)
         self.file = None
         self.path = None
         self.video_thread = None
@@ -32,10 +30,7 @@ class mainLayoutClass(layoutClass, Ui_Main) :
         rows = dbc.select(query)
         self.spot_lbl.setText(rows[0]["spot_name"])
         
-        query = "SELECT ID, CAR_NO FROM NUMBER"
-        rows = dbc.select(query)
-        for row in rows:
-            self.number_list.append(row['car_no'])
+        self.show_num_list()
     
     
     def file_upload(self):
@@ -63,7 +58,7 @@ class mainLayoutClass(layoutClass, Ui_Main) :
         
         if self.file is not None:
             self.detection_thread = detectionClass(self.file, flag)
-            self.detection_thread.detection_signal.connect(self.test)
+            self.detection_thread.detection_signal.connect(self.insert_data)
             self.detection_thread.start()
         
         
@@ -89,6 +84,25 @@ class mainLayoutClass(layoutClass, Ui_Main) :
     #     event.accept()
     
     @Slot(list, name="detectionSignal")
-    def test(self, nums):
-        print(nums)
+    def insert_data(self, nums):
+        now = datetime.now().strftime('%Y-%m-%d')
+        for num in nums:
+            query = f"INSERT INTO NUMBER(CAR_NO, DATE) VALUES('{num}', '{now}')"
+            self.dbc.insert(query)
+            self.show_num_list()
+    
+    def show_num_list(self):
+        query = "SELECT ID, CAR_NO FROM NUMBER"
+        rows = self.dbc.select(query)
+        for row in rows:
+            self.number_list.append(row['car_no'])
+    
+    def show_send(self):
+        self.sendLayout = sendLayoutClass(self.dbc)
+        dlg_rect = self.sendLayout.frameGeometry()
+        center_pointer = self.mapToGlobal(self.rect().center())
+        dlg_rect.moveCenter(center_pointer)
+        self.sendLayout.move(dlg_rect.topLeft())
+        self.sendLayout.show()
+        
     
