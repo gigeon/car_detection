@@ -6,8 +6,7 @@ import sys
 import logging
 from loginLayout import loginLayoutClass
 from db import DBController
-
-file_logger = logging.getLogger("log")
+import os
 
 def main():
     dbc = DBController()
