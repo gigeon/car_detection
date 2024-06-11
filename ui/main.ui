@@ -126,7 +126,7 @@
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>30</y>
+      <y>40</y>
       <width>191</width>
       <height>25</height>
      </rect>
@@ -138,46 +138,30 @@
    <widget class="QLabel" name="text_lbl">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>30</y>
-      <width>51</width>
-      <height>19</height>
+      <x>90</x>
+      <y>40</y>
+      <width>71</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 10pt &quot;Agency FB&quot;;</string>
+     <string notr="true">font: 8pt &quot;Agency FB&quot;;</string>
     </property>
     <property name="text">
      <string>비밀번호</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="hide_lbl">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>20</y>
-      <width>351</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(240, 240, 240);</string>
-    </property>
-    <property name="text">
-     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="ok_btn">
     <property name="geometry">
      <rect>
       <x>370</x>
-      <y>30</y>
-      <width>41</width>
+      <y>40</y>
+      <width>51</width>
       <height>26</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 10pt &quot;Agency FB&quot;;</string>
+     <string notr="true">font: 8pt &quot;Agency FB&quot;;</string>
     </property>
     <property name="text">
      <string>확인</string>
@@ -200,17 +184,23 @@ border: none</string>
      <string/>
     </property>
    </widget>
-   <zorder>vid_lbl</zorder>
-   <zorder>number_list</zorder>
-   <zorder>spot_lbl</zorder>
-   <zorder>send_btn</zorder>
-   <zorder>file_btn</zorder>
-   <zorder>camera_yn</zorder>
-   <zorder>pwd_lbl</zorder>
-   <zorder>text_lbl</zorder>
-   <zorder>ok_btn</zorder>
-   <zorder>hide_lbl</zorder>
-   <zorder>logo_btn</zorder>
+   <widget class="QPushButton" name="hide_btn">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>20</y>
+      <width>371</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(240, 240, 240);
+border: none</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

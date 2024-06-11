@@ -21,6 +21,8 @@ class mainLayoutClass(layoutClass, Ui_Main) :
         self.dbc = dbc
         self.file_btn.clicked.connect(self.file_upload)
         self.send_btn.clicked.connect(self.show_send)
+        self.hide_btn.clicked.connect(lambda: self.hide_btn.setVisible(False))
+        self.ok_btn.clicked.connect(self.show_setting)
         self.file = None
         self.path = None
         self.video_thread = None
@@ -106,4 +108,5 @@ class mainLayoutClass(layoutClass, Ui_Main) :
         self.sendLayout.move(dlg_rect.topLeft())
         self.sendLayout.show()
         
-    
+    def show_setting(self):
+        ...
