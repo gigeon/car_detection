@@ -9,9 +9,9 @@ from lib.detection import detectionClass
 from lib.layoutClass import layoutClass
 from lib.VideoThread import ShowVideoThread
 from sendLayout import sendLayoutClass
+from settingLayout import settingLayoutClass
 from ui.ui_main import Ui_Main
 import re
-import shutil
 
 
 class mainLayoutClass(layoutClass, Ui_Main) :
@@ -117,5 +117,15 @@ class mainLayoutClass(layoutClass, Ui_Main) :
         self.sendLayout.move(dlg_rect.topLeft())
         self.sendLayout.show()
         
+        self.spot_id.setText('123')
+        
     def show_setting(self):
-        ...
+        query = 'SELECT ADMIN_PWD FROM SETTING'
+        rows = self.dbc.select(query)
+        if self.pwd_lbl.text() == rows[0]['admin_pwd']:
+            self.settingLayout = settingLayoutClass(self.dbc)
+            dlg_rect = self.settingLayout.frameGeometry()
+            center_pointer = self.mapToGlobal(self.rect().center())
+            dlg_rect.moveCenter(center_pointer)
+            self.settingLayout.move(dlg_rect.topLeft())
+            self.settingLayout.show()

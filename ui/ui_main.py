@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainFQNYec.ui'
+## Form generated from reading UI file 'mainObszSU.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -42,10 +42,6 @@ class Ui_Main(object):
         self.file_btn = QPushButton(self.centralwidget)
         self.file_btn.setObjectName(u"file_btn")
         self.file_btn.setGeometry(QRect(240, 520, 100, 31))
-        self.camera_yn = QCheckBox(self.centralwidget)
-        self.camera_yn.setObjectName(u"camera_yn")
-        self.camera_yn.setGeometry(QRect(450, 89, 81, 20))
-        self.camera_yn.setIconSize(QSize(10, 10))
         self.pwd_lbl = QLineEdit(self.centralwidget)
         self.pwd_lbl.setObjectName(u"pwd_lbl")
         self.pwd_lbl.setGeometry(QRect(170, 40, 191, 25))
@@ -81,7 +77,6 @@ class Ui_Main(object):
         self.spot_lbl.setText(QCoreApplication.translate("Main", u"TextLabel", None))
         self.send_btn.setText(QCoreApplication.translate("Main", u"\uc804\uc1a1", None))
         self.file_btn.setText(QCoreApplication.translate("Main", u"\ud30c\uc77c \uc5c5\ub85c\ub4dc", None))
-        self.camera_yn.setText(QCoreApplication.translate("Main", u"\uce74\uba54\ub77c", None))
         self.text_lbl.setText(QCoreApplication.translate("Main", u"\ube44\ubc00\ubc88\ud638", None))
         self.ok_btn.setText(QCoreApplication.translate("Main", u"\ud655\uc778", None))
         self.logo_btn.setText("")

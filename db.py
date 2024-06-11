@@ -58,7 +58,7 @@ class DBController:
         
     def insert_default_setting(self):
         try:
-            query = "INSERT INTO SETTING VALUES ('C:/', 'https://hows.or.kr/api/terminal')"
+            query = "INSERT INTO SETTING VALUES ('1234', 'C:/', 'https://hows.or.kr/api/terminal')"
             self.insert(query)
         except Exception as ex:
             file_logger.error("SQL insert_default_setting ERROR {}".format(ex))
@@ -117,6 +117,7 @@ class DBController:
                 CAR_NO TEXT,\
                 SEND_YN INTEGER DEFAULT 0)",
             "SETTING": "CREATE TABLE SETTING(\
+                ADMIN_PWD TEXT,\
                 SAVE_PATH TEXT,\
                 API_PATH TEXT)",
         }
