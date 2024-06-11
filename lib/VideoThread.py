@@ -6,15 +6,16 @@ import time
 
 class ShowVideoThread(QThread):
     change_pixmap_signal = Signal(QImage, name="showVideoSignal")
+    change_done_signal = Signal(name="doneVideoSignal")
 
-    def __init__(self, path):
+    def __init__(self, file):
         super().__init__()
-        self.path = path
+        self.file = file
         self._run_flag = True
 
     def run(self):
-        cap = cv2.VideoCapture(self.path)
-        while self._run_flag and cap.isOpened():
+        cap = cv2.VideoCapture(self.file)
+        while cap.isOpened():
             ret, cv_img = cap.read()
             if ret:
                 rgb_image = cv2.cvtColor(cv_img, cv2.COLOR_BGR2RGB)
@@ -25,6 +26,7 @@ class ShowVideoThread(QThread):
                 time.sleep(0.05)
             else:
                 break
+        self.change_done_signal.emit()
         cap.release()
 
     def stop(self):
