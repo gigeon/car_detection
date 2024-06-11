@@ -10,6 +10,8 @@ from lib.layoutClass import layoutClass
 from lib.VideoThread import ShowVideoThread
 from sendLayout import sendLayoutClass
 from ui.ui_main import Ui_Main
+import re
+import shutil
 
 
 class mainLayoutClass(layoutClass, Ui_Main) :
@@ -50,20 +52,17 @@ class mainLayoutClass(layoutClass, Ui_Main) :
             self.file = cv2.imdecode(np.fromfile(self.path, dtype=np.uint8), cv2.IMREAD_UNCHANGED)
             self.show_img_label(self.file)
             flag = 0
+            if self.path is not None:
+                self.detection_thread = detectionClass(self.path, flag)
+                self.detection_thread.detection_signal.connect(self.insert_data)
+                self.detection_thread.start()
                 
         elif self.path.lower().endswith(('.mp4', '.avi', '.mov')):
-            self.file = cv2.VideoCapture(self.path)
             self.video_thread = ShowVideoThread(self.path)
             self.video_thread.change_pixmap_signal.connect(self.show_vid_label)
+            self.video_thread.change_done_signal.connect(self.done_change)
             self.video_thread.start()
             flag = 1
-        
-        if self.file is not None:
-            self.detection_thread = detectionClass(self.file, flag)
-            self.detection_thread.detection_signal.connect(self.insert_data)
-            self.detection_thread.start()
-        
-        
                 
     def show_img_label(self, img):
         img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -85,15 +84,26 @@ class mainLayoutClass(layoutClass, Ui_Main) :
     #         self.video_thread.stop()
     #     event.accept()
     
+    @Slot(name="doneVideoSignal")
+    def done_change(self):
+        flag = 1
+        self.detection_thread = detectionClass(self.path, flag)
+        self.detection_thread.detection_signal.connect(self.insert_data)
+        self.detection_thread.start()
+    
     @Slot(list, name="detectionSignal")
     def insert_data(self, nums):
+        repit_list = []
         now = datetime.now().strftime('%Y-%m-%d')
         for num in nums:
-            query = f"INSERT INTO NUMBER(CAR_NO, DATE) VALUES('{num}', '{now}')"
-            self.dbc.insert(query)
-            self.show_num_list()
+            if re.match(r'^\d{4}$', num) and num not in repit_list:
+                repit_list.append(num)
+                query = f'INSERT INTO NUMBER(CAR_NO, DATE) VALUES("{num}", "{now}")'
+                self.dbc.insert(query)
+                self.show_num_list()
     
     def show_num_list(self):
+        self.number_list.clear()
         query = "SELECT ID, CAR_NO FROM NUMBER"
         rows = self.dbc.select(query)
         for row in rows:
