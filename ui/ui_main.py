@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainVEWchB.ui'
+## Form generated from reading UI file 'mainFQNYec.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -48,37 +48,27 @@ class Ui_Main(object):
         self.camera_yn.setIconSize(QSize(10, 10))
         self.pwd_lbl = QLineEdit(self.centralwidget)
         self.pwd_lbl.setObjectName(u"pwd_lbl")
-        self.pwd_lbl.setGeometry(QRect(170, 30, 191, 25))
+        self.pwd_lbl.setGeometry(QRect(170, 40, 191, 25))
         self.pwd_lbl.setMaxLength(10)
         self.text_lbl = QLabel(self.centralwidget)
         self.text_lbl.setObjectName(u"text_lbl")
-        self.text_lbl.setGeometry(QRect(110, 30, 51, 19))
-        self.text_lbl.setStyleSheet(u"font: 10pt \"Agency FB\";")
-        self.hide_lbl = QLabel(self.centralwidget)
-        self.hide_lbl.setObjectName(u"hide_lbl")
-        self.hide_lbl.setGeometry(QRect(100, 20, 351, 51))
-        self.hide_lbl.setStyleSheet(u"background-color: rgb(240, 240, 240);")
+        self.text_lbl.setGeometry(QRect(90, 40, 71, 20))
+        self.text_lbl.setStyleSheet(u"font: 8pt \"Agency FB\";")
         self.ok_btn = QPushButton(self.centralwidget)
         self.ok_btn.setObjectName(u"ok_btn")
-        self.ok_btn.setGeometry(QRect(370, 30, 41, 26))
-        self.ok_btn.setStyleSheet(u"font: 10pt \"Agency FB\";")
+        self.ok_btn.setGeometry(QRect(370, 40, 51, 26))
+        self.ok_btn.setStyleSheet(u"font: 8pt \"Agency FB\";")
         self.logo_btn = QPushButton(self.centralwidget)
         self.logo_btn.setObjectName(u"logo_btn")
         self.logo_btn.setGeometry(QRect(720, 10, 70, 70))
         self.logo_btn.setStyleSheet(u"background-color: rgb(240, 240, 240);\n"
 "border: none")
+        self.hide_btn = QPushButton(self.centralwidget)
+        self.hide_btn.setObjectName(u"hide_btn")
+        self.hide_btn.setGeometry(QRect(70, 20, 371, 71))
+        self.hide_btn.setStyleSheet(u"background-color: rgb(240, 240, 240);\n"
+"border: none")
         Main.setCentralWidget(self.centralwidget)
-        self.vid_lbl.raise_()
-        self.number_list.raise_()
-        self.spot_lbl.raise_()
-        self.send_btn.raise_()
-        self.file_btn.raise_()
-        self.camera_yn.raise_()
-        self.pwd_lbl.raise_()
-        self.text_lbl.raise_()
-        self.ok_btn.raise_()
-        self.hide_lbl.raise_()
-        self.logo_btn.raise_()
 
         self.retranslateUi(Main)
 
@@ -93,8 +83,8 @@ class Ui_Main(object):
         self.file_btn.setText(QCoreApplication.translate("Main", u"\ud30c\uc77c \uc5c5\ub85c\ub4dc", None))
         self.camera_yn.setText(QCoreApplication.translate("Main", u"\uce74\uba54\ub77c", None))
         self.text_lbl.setText(QCoreApplication.translate("Main", u"\ube44\ubc00\ubc88\ud638", None))
-        self.hide_lbl.setText("")
         self.ok_btn.setText(QCoreApplication.translate("Main", u"\ud655\uc778", None))
         self.logo_btn.setText("")
+        self.hide_btn.setText("")
     # retranslateUi
 

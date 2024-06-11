@@ -21,6 +21,8 @@ class mainLayoutClass(layoutClass, Ui_Main) :
         self.dbc = dbc
         self.file_btn.clicked.connect(self.file_upload)
         self.send_btn.clicked.connect(self.show_send)
+        self.hide_btn.clicked.connect(lambda: self.hide_btn.setVisible(False))
+        self.ok_btn.clicked.connect(self.show_setting)
         self.file = None
         self.path = None
         self.video_thread = None
@@ -87,11 +89,12 @@ class mainLayoutClass(layoutClass, Ui_Main) :
     def insert_data(self, nums):
         now = datetime.now().strftime('%Y-%m-%d')
         for num in nums:
-            query = f"INSERT INTO NUMBER(CAR_NO, DATE) VALUES('{num}', '{now}')"
+            query = f'INSERT INTO NUMBER(CAR_NO, DATE) VALUES("{num}", "{now}")'
             self.dbc.insert(query)
             self.show_num_list()
     
     def show_num_list(self):
+        self.number_list.clear()
         query = "SELECT ID, CAR_NO FROM NUMBER"
         rows = self.dbc.select(query)
         for row in rows:
@@ -105,4 +108,5 @@ class mainLayoutClass(layoutClass, Ui_Main) :
         self.sendLayout.move(dlg_rect.topLeft())
         self.sendLayout.show()
         
-    
+    def show_setting(self):
+        ...

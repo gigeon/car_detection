@@ -27,7 +27,6 @@ class detectionClass(QThread):
             self.detection_image(self.file)
         
         self.detection_plate()
-        print('0')
         self.detection_number()
         self.detection_signal.emit(self.num_list)
         
@@ -93,12 +92,12 @@ class detectionClass(QThread):
             resized_image = cv2.resize(plt, (new_width, new_height), interpolation=cv2.INTER_LINEAR)
 
             gray = cv2.cvtColor(resized_image, cv2.COLOR_BGR2GRAY)
-            cv2.imshow('test',gray)
-            cv2.waitKey(0)
-            cv2.destroyAllWindows()
+            # cv2.imshow('test',gray)
+            # cv2.waitKey(0)
+            # cv2.destroyAllWindows()
             config='--psm 7 --oem 0'
             text = pytesseract.image_to_string(gray, lang='kor', config=config)
-            print(text)
+            text = re.sub('[^가-힣0-9]', '', text)
             self.num_list.append(text)
             
     
