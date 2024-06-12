@@ -3,20 +3,23 @@ from PySide2.QtGui import QIcon, QPixmap
 from lib.makeExcel import makeExcelClass
 from PySide2.QtCore import Qt
 from PySide2.QtWidgets import QDialog
+from PySide2.QtCore import Signal, Slot
 import requests
 import json
 
 
 class settingLayoutClass(QDialog, Ui_Setting):
+    setting_close_signal = Signal(name = "closeSettingSignal")
+    
     def __init__(self, dbc):
         super(settingLayoutClass, self).__init__()
         self.dbc = dbc
         self.setupUi(self)
         self.set_logo()
         self.setWindowFlags(Qt.FramelessWindowHint)
-        self.logo_btn.clicked.connect(self.close)
-        # self.btn.clicked.connect(self.save_data)
-        # self.btn2.clicked.connect(self.save_data)
+        self.logo_btn.clicked.connect(self.close_setting)
+        self.btn.clicked.connect(self.save_data)
+        self.btn_2.clicked.connect(self.save_data)
         self.show_data()
         
         
@@ -40,18 +43,26 @@ class settingLayoutClass(QDialog, Ui_Setting):
         self.api_path.setText(str(set_list['api_path']))
         self.save_path.setText(str(set_list['save_path']))
     
-    # def save_data(self):
-    #     spot_id = self.spot_id.text()
-    #     spot_name = self.spot_name.text()
-    #     user_id = self.user_id.text()
-    #     user_pwd = self.user_pwd.text()
-    #     api_path = self.api_path.text()
-    #     save_path = self.save_path.text()
+    def save_data(self, event):
+        spot_id = self.spot_id.text()
+        spot_name = self.spot_name.text()
+        user_id = self.user_id.text()
+        user_pwd = self.user_pwd.text()
+        api_path = self.api_path.text()
+        save_path = self.save_path.text()
         
-    #     conf_query = f'UPDATE CONFIG SET SPOT_ID = "{spot_id}", \
-    #         SPOT_NAME = "{spot_name}", \
-    #         USER_ID = "{user_id}", \
-    #         USER_PWD = "{user_pwd}"'
-    #     set_query = 'SELECT * FROM SETTING'
-    #     conf_list = self.dbc.select(conf_query)[0]
-    #     set_list = self.dbc.select(set_query)[0]
+        conf_query = f'UPDATE CONFIG SET \
+            SPOT_ID = "{spot_id}", \
+            SPOT_NAME = "{spot_name}", \
+            USER_ID = "{user_id}", \
+            USER_PWD = "{user_pwd}"'
+        set_query = f'UPDATE SETTING SET \
+            API_PATH = "{api_path}", \
+            SAVE_PATH = "{save_path}"'
+        self.dbc.update(conf_query)
+        self.dbc.update(set_query)
+        self.close_setting
+    
+    def close_setting(self):
+        self.close()
+        self.setting_close_signal.emit()

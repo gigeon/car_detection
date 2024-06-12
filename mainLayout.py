@@ -124,8 +124,14 @@ class mainLayoutClass(layoutClass, Ui_Main) :
         rows = self.dbc.select(query)
         if self.pwd_lbl.text() == rows[0]['admin_pwd']:
             self.settingLayout = settingLayoutClass(self.dbc)
+            self.settingLayout.setting_close_signal.connect(self.close_signal)
             dlg_rect = self.settingLayout.frameGeometry()
             center_pointer = self.mapToGlobal(self.rect().center())
             dlg_rect.moveCenter(center_pointer)
             self.settingLayout.move(dlg_rect.topLeft())
             self.settingLayout.show()
+            
+    @Slot(name="closeSettingSignal")
+    def close_signal(self):
+        self.hide_btn.setVisible(True)
+        self.pwd_lbl.setText('')
