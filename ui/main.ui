@@ -103,25 +103,6 @@
      <string>파일 업로드</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="camera_yn">
-    <property name="geometry">
-     <rect>
-      <x>450</x>
-      <y>89</y>
-      <width>81</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>카메라</string>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>10</width>
-      <height>10</height>
-     </size>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="pwd_lbl">
     <property name="geometry">
      <rect>
