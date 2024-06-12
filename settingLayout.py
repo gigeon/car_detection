@@ -1,11 +1,8 @@
 from ui.ui_setting import Ui_Setting
 from PySide2.QtGui import QIcon, QPixmap
-from lib.makeExcel import makeExcelClass
 from PySide2.QtCore import Qt
 from PySide2.QtWidgets import QDialog
-from PySide2.QtCore import Signal, Slot
-import requests
-import json
+from PySide2.QtCore import Signal
 
 
 class settingLayoutClass(QDialog, Ui_Setting):

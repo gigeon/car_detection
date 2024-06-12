@@ -6,7 +6,7 @@ import sys
 import logging
 from loginLayout import loginLayoutClass
 from db import DBController
-import os
+
 
 def main():
     dbc = DBController()
