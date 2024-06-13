@@ -1,18 +1,20 @@
+from PySide2.QtGui import QImage
+from PySide2.QtCore import QThread, Signal
 import torch
 import cv2
-from PySide2.QtCore import QThread, Signal
-from PySide2.QtGui import QPixmap, QImage
 import numpy as np
 import pytesseract
-pytesseract.pytesseract.tesseract_cmd = 'C:\Program Files\Tesseract-OCR/tesseract.exe'
 import re
+import os
+from datetime import datetime
 
+pytesseract.pytesseract.tesseract_cmd = 'C:\Program Files\Tesseract-OCR/tesseract.exe'
 
 class detectionClass(QThread):
     detection_signal = Signal(list, name="detectionSignal")
     change_pixmap_signal = Signal(QImage, name="showVideoSignal")
     
-    def __init__(self, file, flag):
+    def __init__(self, file, flag, dbc):
         super().__init__()
         self.model_yolo = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True)
         self.model_east = "frozen_east_text_detection.pb"
@@ -21,6 +23,7 @@ class detectionClass(QThread):
         self.num_list = []
         self.file = file
         self.flag = flag
+        self.dbc = dbc
         
     def run(self):
         if self.flag == 1:
@@ -60,7 +63,24 @@ class detectionClass(QThread):
     def detection_plate(self):
         try:
             net = cv2.dnn.readNet(self.model_east)
-            for img in self.img_list:
+            query = "SELECT SAVE_PATH FROM SETTING"
+            save_path = self.dbc.select(query)[0]['save_path']
+            now = datetime.now().strftime('%Y-%m-%d')
+            if save_path[-1] != '/':
+                save_path = f'{save_path}/'
+            re_save_path = f'{save_path}dist/'
+            
+            if not os.path.exists(re_save_path):
+                os.mkdir(re_save_path)
+                
+            re_save_path = f'{re_save_path}image_{now}'
+            if not os.path.exists(re_save_path):
+                os.mkdir(re_save_path)
+            
+                
+            for j, img in enumerate(self.img_list):
+                cv2.imwrite(f'{re_save_path}/image{j}.png',img)
+                
                 orig = img.copy()
                 (H, W) = img.shape[:2]
                 newW, newH = (320, 320)

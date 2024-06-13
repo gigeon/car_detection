@@ -53,7 +53,7 @@ class mainLayoutClass(layoutClass, Ui_Main) :
             self.show_img_label(self.file)
             flag = 0
             if self.path is not None:
-                self.detection_thread = detectionClass(self.path, flag)
+                self.detection_thread = detectionClass(self.path, flag, self.dbc)
                 self.detection_thread.detection_signal.connect(self.insert_data)
                 self.detection_thread.start()
                 
@@ -87,7 +87,7 @@ class mainLayoutClass(layoutClass, Ui_Main) :
     @Slot(name="doneVideoSignal")
     def done_change(self):
         flag = 1
-        self.detection_thread = detectionClass(self.path, flag)
+        self.detection_thread = detectionClass(self.path, flag, self.dbc)
         self.detection_thread.detection_signal.connect(self.insert_data)
         self.detection_thread.start()
     

@@ -33,7 +33,6 @@ class sendLayoutClass(QDialog, Ui_Send):
             self.number_list.append(row['car_no'])
     
     def send_excel(self):
-        print("1")
         excel = makeExcelClass(self.dbc)
         excel.make_excel()
     

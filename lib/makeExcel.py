@@ -16,7 +16,6 @@ class makeExcelClass():
         rows = self.dbc.select(query)
         save_path = rows[0]['save_path']
         excel_name = f'{save_path}차량리스트_{now}.xlsx'
-        print(excel_name)
         if not os.path.exists(excel_name):
             self.wb.active.append(self.column)
             
