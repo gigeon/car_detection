@@ -3,15 +3,15 @@ from PySide2.QtWidgets import QFileDialog
 from PySide2.QtGui import QPixmap, QImage
 import cv2
 import os
-from datetime import datetime
+import re
 import np
+from datetime import datetime
 from lib.detection import detectionClass
 from lib.layoutClass import layoutClass
 from lib.VideoThread import ShowVideoThread
-from sendLayout import sendLayoutClass
-from settingLayout import settingLayoutClass
+from layout.sendLayout import sendLayoutClass
+from layout.settingLayout import settingLayoutClass
 from ui.ui_main import Ui_Main
-import re
 
 
 class mainLayoutClass(layoutClass, Ui_Main) :

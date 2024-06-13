@@ -1,8 +1,6 @@
-from PySide2.QtWidgets import (
-    QMainWindow,
-)
+from PySide2.QtWidgets import QMainWindow
 from ui.ui_login import Ui_Login
-from mainLayout import mainLayoutClass
+from layout.mainLayout import mainLayoutClass
 from PySide2.QtGui import QPixmap
 from PySide2.QtCore import Qt
 
