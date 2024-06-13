@@ -486,6 +486,18 @@ border: none</string>
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>logo_btn</tabstop>
+  <tabstop>spot_id</tabstop>
+  <tabstop>spot_name</tabstop>
+  <tabstop>user_id</tabstop>
+  <tabstop>user_pwd</tabstop>
+  <tabstop>btn</tabstop>
+  <tabstop>save_path</tabstop>
+  <tabstop>api_path</tabstop>
+  <tabstop>btn_2</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

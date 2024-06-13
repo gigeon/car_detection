@@ -3,9 +3,8 @@ from PySide2.QtWidgets import (
     QApplication
 )
 import sys
-import logging
 from loginLayout import loginLayoutClass
-from db import DBController
+from lib.db import DBController
 
 
 def main():

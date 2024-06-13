@@ -24,9 +24,7 @@ class loginLayoutClass(QMainWindow, Ui_Login) :
         query = "SELECT USER_ID, USER_PWD FROM CONFIG"
         rows = self.dbc.select(query)
         if self.id == rows[0]['user_id'] and self.pwd == rows[0]['user_pwd'] :
-            mainLayout = mainLayoutClass(self.app)
+            mainLayout = mainLayoutClass(self.app, self.dbc)
             self.setCentralWidget(mainLayout)
-        mainLayout = mainLayoutClass(self.app, self.dbc)
-        self.setCentralWidget(mainLayout)
         
     

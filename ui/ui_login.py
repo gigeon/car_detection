@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'loginKRDIkD.ui'
+## Form generated from reading UI file 'loginQzbiyQ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -18,6 +18,8 @@ class Ui_Login(object):
         if not Login.objectName():
             Login.setObjectName(u"Login")
         Login.resize(828, 633)
+        Login.setMinimumSize(QSize(828, 633))
+        Login.setMaximumSize(QSize(828, 633))
         self.centralwidget = QWidget(Login)
         self.centralwidget.setObjectName(u"centralwidget")
         self.logo_lbl = QLabel(self.centralwidget)
@@ -40,6 +42,8 @@ class Ui_Login(object):
         self.id_label.setObjectName(u"id_label")
         self.id_label.setGeometry(QRect(330, 410, 81, 16))
         Login.setCentralWidget(self.centralwidget)
+        QWidget.setTabOrder(self.id_txt, self.pwd_txt)
+        QWidget.setTabOrder(self.pwd_txt, self.login_btn)
 
         self.retranslateUi(Login)
 

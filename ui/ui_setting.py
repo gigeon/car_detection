@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'settingjYOjGY.ui'
+## Form generated from reading UI file 'settingHPolrF.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -151,6 +151,15 @@ class Ui_Setting(object):
         self.logo_btn.setGeometry(QRect(720, 10, 70, 70))
         self.logo_btn.setStyleSheet(u"background-color: rgb(240, 240, 240);\n"
 "border: none")
+        QWidget.setTabOrder(self.tabWidget, self.logo_btn)
+        QWidget.setTabOrder(self.logo_btn, self.spot_id)
+        QWidget.setTabOrder(self.spot_id, self.spot_name)
+        QWidget.setTabOrder(self.spot_name, self.user_id)
+        QWidget.setTabOrder(self.user_id, self.user_pwd)
+        QWidget.setTabOrder(self.user_pwd, self.btn)
+        QWidget.setTabOrder(self.btn, self.save_path)
+        QWidget.setTabOrder(self.save_path, self.api_path)
+        QWidget.setTabOrder(self.api_path, self.btn_2)
 
         self.retranslateUi(Setting)
 
