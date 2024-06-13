@@ -103,6 +103,11 @@
    </widget>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>id_txt</tabstop>
+  <tabstop>pwd_txt</tabstop>
+  <tabstop>login_btn</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

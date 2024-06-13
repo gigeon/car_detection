@@ -6,7 +6,7 @@ import numpy as np
 import pytesseract
 pytesseract.pytesseract.tesseract_cmd = 'C:\Program Files\Tesseract-OCR/tesseract.exe'
 import re
-import time
+
 
 class detectionClass(QThread):
     detection_signal = Signal(list, name="detectionSignal")

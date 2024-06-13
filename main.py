@@ -1,12 +1,8 @@
-from PySide2.QtWidgets import (
-    QMainWindow,
-    QApplication
-)
+from PySide2.QtWidgets import QApplication
 import sys
-import logging
-from loginLayout import loginLayoutClass
-from db import DBController
-import os
+from layout.loginLayout import loginLayoutClass
+from lib.db import DBController
+
 
 def main():
     dbc = DBController()
