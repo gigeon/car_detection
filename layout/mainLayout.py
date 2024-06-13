@@ -117,8 +117,6 @@ class mainLayoutClass(layoutClass, Ui_Main) :
         self.sendLayout.move(dlg_rect.topLeft())
         self.sendLayout.show()
         
-        self.spot_id.setText('123')
-        
     def show_setting(self):
         query = 'SELECT ADMIN_PWD FROM SETTING'
         rows = self.dbc.select(query)
