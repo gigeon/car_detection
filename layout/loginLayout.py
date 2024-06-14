@@ -1,7 +1,7 @@
 from PySide2.QtWidgets import QMainWindow
 from ui.ui_login import Ui_Login
 from layout.mainLayout import mainLayoutClass
-from PySide2.QtGui import QPixmap
+from PySide2.QtGui import QPixmap, QIcon
 from PySide2.QtCore import Qt
 
 class loginLayoutClass(QMainWindow, Ui_Login) :
@@ -14,6 +14,8 @@ class loginLayoutClass(QMainWindow, Ui_Login) :
         pixmap = QPixmap('images/tino.png')
         pixmap = pixmap.scaled(self.logo_lbl.size(),Qt.KeepAspectRatio, Qt.SmoothTransformation)
         self.logo_lbl.setPixmap(pixmap)
+        self.setWindowTitle('carDetection')
+        self.setWindowIcon(QIcon('images/tino.png'))
         
         
     def login(self):
